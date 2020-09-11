@@ -1,7 +1,5 @@
 import 'package:conversor/calc.dart';
 import 'package:conversor/converter.dart';
-import 'package:conversor/gorjeta.dart';
-import 'package:conversor/novo.dart';
 import 'package:conversor/sales_tax.dart';
 import 'package:conversor/tips.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +40,6 @@ class Home extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-
                     SizedBox(
                       height: 20,
                     ),
@@ -51,11 +48,15 @@ class Home extends StatelessWidget {
                           child: Text("Calculadora"),
                           color: Colors.blueAccent,
                           onPressed: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (_) => Calculator()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => Calculator()));
                           }),
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Container(
                       child: RaisedButton(
                           child: Text("Impostos"),
@@ -65,18 +66,16 @@ class Home extends StatelessWidget {
                                 MaterialPageRoute(builder: (_) => Impostos()));
                           }),
                     ),
-          Container(
-            child: RaisedButton(
-                child: Text("Gorjetas"),
-                color: Colors.blueAccent,
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => Novo()));
-                }),
-          )
-
-
-          ],
+                    Container(
+                      child: RaisedButton(
+                          child: Text("Gorjetas"),
+                          color: Colors.blueAccent,
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (_) => Tips()));
+                          }),
+                    )
+                  ],
                 ),
               ),
             ),
