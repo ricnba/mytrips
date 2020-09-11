@@ -28,9 +28,9 @@ class _TipsState extends State<Tips> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-        title: Text("\$ Tips \$"),
-    backgroundColor: Colors.lightBlue,
-    centerTitle: true,),
+          title: Text("\$ Tips \$"),
+          backgroundColor: Colors.lightBlue,
+          centerTitle: true,),
         body: Center(
           child: SingleChildScrollView(
             child: Stack(children: [
@@ -54,11 +54,11 @@ class _TipsState extends State<Tips> {
                               readOnly: debugInstrumentationEnabled,
                               controller: ctrl,
                               decoration: InputDecoration(
-                                labelText: "Valor",
-                                labelStyle: TextStyle(color: Colors.white),
-                                border: OutlineInputBorder(),
-                                prefixText: "\$  ",
-                                prefixStyle: TextStyle(color: Colors.white, fontSize: 18)
+                                  labelText: "Valor",
+                                  labelStyle: TextStyle(color: Colors.white),
+                                  border: OutlineInputBorder(),
+                                  prefixText: "\$  ",
+                                  prefixStyle: TextStyle(color: Colors.white, fontSize: 18)
                               ),
                               style: TextStyle(
                                 color: Colors.white, fontSize: 25.0,
@@ -66,37 +66,37 @@ class _TipsState extends State<Tips> {
                               keyboardType: TextInputType.number,
                             ),
                             SizedBox(height: 16,),
-                      TextField(
-                        readOnly: debugInstrumentationEnabled,
-                        controller: gorjetactrl,
-                        decoration: InputDecoration(
-                            labelText: "Gorjeta",
-                            labelStyle: TextStyle(color: Colors.white),
-                            border: OutlineInputBorder(),
-                            prefixText: "\$  ",
-                            prefixStyle: TextStyle(color: Colors.white, fontSize: 18)
-                        ),
-                        style: TextStyle(
-                          color: Colors.white, fontSize: 25.0,
-                        ),
-                        keyboardType: TextInputType.number,
-                      ),
+                            TextField(
+                              readOnly: true,
+                              controller: gorjetactrl,
+                              decoration: InputDecoration(
+                                  labelText: "Gorjeta",
+                                  labelStyle: TextStyle(color: Colors.white),
+                                  border: OutlineInputBorder(),
+                                  prefixText: "\$  ",
+                                  prefixStyle: TextStyle(color: Colors.white, fontSize: 18)
+                              ),
+                              style: TextStyle(
+                                color: Colors.white, fontSize: 25.0,
+                              ),
+                              keyboardType: TextInputType.number,
+                            ),
                             SizedBox(height: 26,),
-                      TextField(
-                        readOnly: true,
-                        controller: totalctrl,
-                        decoration: InputDecoration(
-                            labelText: "Total",
-                            labelStyle: TextStyle(color: Colors.white),
-                            border: OutlineInputBorder(),
-                            prefixText: "\$  ",
-                            prefixStyle: TextStyle(color: Colors.white, fontSize: 18)
-                        ),
-                        style: TextStyle(
-                          color: Colors.white, fontSize: 25.0,
-                        ),
-                        keyboardType: TextInputType.number,
-                      ),
+                            TextField(
+                              readOnly: true,
+                              controller: totalctrl,
+                              decoration: InputDecoration(
+                                  labelText: "Total",
+                                  labelStyle: TextStyle(color: Colors.white),
+                                  border: OutlineInputBorder(),
+                                  prefixText: "\$  ",
+                                  prefixStyle: TextStyle(color: Colors.white, fontSize: 18)
+                              ),
+                              style: TextStyle(
+                                color: Colors.white, fontSize: 25.0,
+                              ),
+                              keyboardType: TextInputType.number,
+                            ),
                           ],
                         ),
                       ),
