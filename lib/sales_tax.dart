@@ -53,7 +53,7 @@ class _HomePageState extends State<Impostos> {
         tax = 7.25;
         break;
       case 'CA':
-        tax =5;
+        tax =50;
         break;
     }
 
