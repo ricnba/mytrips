@@ -5,8 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:country_pickers/country_pickers.dart';
 import 'package:http/http.dart' as http;
-
-
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 
 class Impostos extends StatefulWidget {
   @override
@@ -14,19 +13,21 @@ class Impostos extends StatefulWidget {
 }
 
 class _HomePageState extends State<Impostos> {
-
-  double tax;
+  double tax = 0;
 
   Country _selectedSecondCupertinoCountry =
-  CountryPickerUtils.getCountryByIsoCode('US');
+      CountryPickerUtils.getCountryByIsoCode('US');
 
-  TextEditingController prodCtrl = TextEditingController();
-  TextEditingController taxCtrl = TextEditingController();
-  TextEditingController totalCtrl = TextEditingController();
+  TextEditingController prodCtrl = new MoneyMaskedTextController();
+  TextEditingController taxCtrl = new MoneyMaskedTextController();
+  TextEditingController totalCtrl = new MoneyMaskedTextController();
 
-  void calcImposto (String text){
-    double valorProduto = double.parse(prodCtrl.text);
-    double valorTax = (valorProduto*(tax/100));
+  void calcImposto(String text) {
+    if (text == '') return;
+
+    double valorProduto =
+        double.parse(prodCtrl.text.replaceAll('.', '').replaceAll(',', '.'));
+    double valorTax = (valorProduto * (tax / 100));
     taxCtrl.text = valorTax.toStringAsFixed(2);
     totalCtrl.text = (valorProduto + valorTax).toStringAsFixed(2);
   }
@@ -53,7 +54,7 @@ class _HomePageState extends State<Impostos> {
         tax = 7.25;
         break;
       case 'CA':
-        tax =5;
+        tax = 5;
         break;
     }
 
@@ -65,7 +66,7 @@ class _HomePageState extends State<Impostos> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: <Widget>[
-              //  Card(child: CountryPickerDropdown()),
+              //Card(child: CountryPickerDropdown()),
               TextField(
                 controller: prodCtrl,
                 onChanged: calcImposto,
@@ -92,7 +93,6 @@ class _HomePageState extends State<Impostos> {
                   color: Colors.black,
                   fontSize: 20.0,
                 ),
-                keyboardType: TextInputType.number,
               ),
               TextField(
                 controller: totalCtrl,
@@ -106,7 +106,6 @@ class _HomePageState extends State<Impostos> {
                   color: Colors.black,
                   fontSize: 20.0,
                 ),
-                keyboardType: TextInputType.number,
               ),
               Card(
                 child: Column(
@@ -175,9 +174,9 @@ class _HomePageState extends State<Impostos> {
           SizedBox(width: 8.0),
           Flexible(
               child: Text(
-                country.name,
-                style: TextStyle(color: Colors.black),
-              ))
+            country.name,
+            style: TextStyle(color: Colors.black),
+          ))
         ],
       ),
     );
