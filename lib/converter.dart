@@ -11,7 +11,7 @@ const request =
 
 Future<Map> getData() async {
   http.Response response = await http.get(request);
-  print(response.body);
+  //print(response.body);
   return json.decode(response.body);
 }
 
@@ -22,9 +22,9 @@ class Converter extends StatefulWidget {
 
 class _HomePageState extends State<Converter> {
   Country _selectedCupertinoCountry =
-  CountryPickerUtils.getCountryByIsoCode('BR');
+      CountryPickerUtils.getCountryByIsoCode('BR');
   Country _selectedSecondCupertinoCountry =
-  CountryPickerUtils.getCountryByIsoCode('US');
+      CountryPickerUtils.getCountryByIsoCode('US');
 
   final firstCtrl = TextEditingController();
   final secondCtrl = TextEditingController();
@@ -97,11 +97,11 @@ class _HomePageState extends State<Converter> {
                     );
                   } else {
                     dolar =
-                    snapshot.data["results"]['currencies']["USD"]["buy"];
+                        snapshot.data["results"]['currencies']["USD"]["buy"];
                     euro = snapshot.data["results"]['currencies']["EUR"]["buy"];
                     peso = snapshot.data["results"]['currencies']["ARS"]["buy"];
                     libra =
-                    snapshot.data["results"]['currencies']["GBP"]["buy"];
+                        snapshot.data["results"]['currencies']["GBP"]["buy"];
 
                     String iso;
                     switch (_selectedSecondCupertinoCountry.isoCode) {
@@ -142,8 +142,8 @@ class _HomePageState extends State<Converter> {
                                       SizedBox(width: 12.0),
                                       Flexible(
                                           flex: 8,
-                                          child: buildTextField("\$", firstCtrl,
-                                              _firstCtrlChange)),
+                                          child: buildTextField("R\$",
+                                              firstCtrl, _firstCtrlChange)),
                                     ],
                                   ),
                                 ),
@@ -224,9 +224,9 @@ class _HomePageState extends State<Converter> {
           SizedBox(width: 8.0),
           Flexible(
               child: Text(
-                country.name,
-                style: TextStyle(color: Colors.black),
-              ))
+            country.name,
+            style: TextStyle(color: Colors.black),
+          ))
         ],
       ),
     );
